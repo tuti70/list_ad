@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).primaryColor,
           title: const Text(
-            "App tarerefas",
+            "App ADS",
             style: TextStyle(color: Colors.white),
           ),
           centerTitle: true,

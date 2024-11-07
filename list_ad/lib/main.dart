@@ -15,6 +15,7 @@ void main() {
     routes:{
       "/": (context) => HomeScreen(),
       "/cadastro": (context) => CadastroScreen()
+      ads
     }
   ));
 }
