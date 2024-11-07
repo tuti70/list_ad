@@ -1,4 +1,4 @@
-package br.com.otuti.list_ad
+package br.com.otuti.lista_de_tarrefas
 
 import io.flutter.embedding.android.FlutterActivity
 
