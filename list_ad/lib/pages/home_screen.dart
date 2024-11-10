@@ -28,13 +28,39 @@ class _HomeScreenState extends State<HomeScreen> {
           itemBuilder: (context, position) {
             Ads ads = _lista[position];
             return ListTile(
+              onLongPress: () async {
+                showBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        padding: EdgeInsets.all(10.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ListTile(
+                                leading: Icon(Icons.delete),
+                                title: Text("Apagar"),
+                                onTap: () async {
+                                  setState(() {
+                                    _lista.remove(position);
+                                  });
+                                }),
+                            ListTile(
+                                leading: Icon(Icons.edit),
+                                title: Text("Editar"),
+                                onTap: () {}),
+                          ],
+                        ),
+                      );
+                    });
+              },
               title: Text(
                 _lista[position].texto,
                 style: TextStyle(
-                  color: ads.done ? Colors.grey : Colors.white,
+                  color: ads.done ? Colors.white : Colors.grey,
                   decoration: ads.done
-                      ? TextDecoration.lineThrough
-                      : TextDecoration.none,
+                      ? TextDecoration.none
+                      : TextDecoration.lineThrough,
                 ),
               ),
               subtitle: Text(_lista[position].titulo),
