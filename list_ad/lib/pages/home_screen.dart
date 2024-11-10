@@ -28,16 +28,22 @@ class _HomeScreenState extends State<HomeScreen> {
           itemBuilder: (context, position) {
             Ads ads = _lista[position];
             return ListTile(
-              tileColor: Colors.white,
-              title: Text(_lista[position].texto),
+              title: Text(
+                _lista[position].texto,
+                style: TextStyle(
+                  color: ads.done ? Colors.grey : Colors.white,
+                  decoration: ads.done
+                      ? TextDecoration.lineThrough
+                      : TextDecoration.none,
+                ),
+              ),
               subtitle: Text(_lista[position].titulo),
-              shape: Border.symmetric(ver),
               trailing: Switch(
                   value: ads.done,
-                  activeColor: const Color.fromARGB(255, 52, 158, 58),
+                  activeColor: const Color.fromARGB(255, 61, 255, 109),
                   onChanged: (bool value) {
                     setState(() {
-                      ads.done = value;
+                      ads.done = !ads.done;
                     });
                   }),
             );
