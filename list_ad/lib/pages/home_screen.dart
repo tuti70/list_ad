@@ -77,7 +77,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       : TextDecoration.lineThrough,
                 ),
               ),
-              subtitle: Text(_lista[position].texto),
+              subtitle: Text(
+                _lista[position].texto,
+                style: TextStyle(
+                  color: ads.done ? Colors.white : Colors.grey,
+                  decoration: ads.done
+                      ? TextDecoration.none
+                      : TextDecoration.lineThrough,
+                ),
+              ),
               trailing: Switch(
                   value: ads.done,
                   activeColor: const Color.fromARGB(255, 61, 255, 109),
