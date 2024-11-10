@@ -40,22 +40,36 @@ class _HomeScreenState extends State<HomeScreen> {
                             ListTile(
                                 leading: Icon(Icons.delete),
                                 title: Text("Apagar"),
-                                onTap: () async {
+                                onTap: () {
                                   setState(() {
-                                    _lista.remove(position);
+                                    _lista.removeAt(position);
                                   });
                                 }),
                             ListTile(
-                                leading: Icon(Icons.edit),
-                                title: Text("Editar"),
-                                onTap: () {}),
+                              leading: Icon(Icons.edit),
+                              title: Text("Editar"),
+                              onTap: () async {
+                                Navigator.pop(context);
+                                Ads editedAds = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            CadastroScreen(ads: ads)));
+                                if (editedAds != null) {
+                                  setState(() {
+                                    _lista.removeAt(position);
+                                    _lista.insert(position, editedAds);
+                                  });
+                                }
+                              },
+                            ),
                           ],
                         ),
                       );
                     });
               },
               title: Text(
-                _lista[position].texto,
+                _lista[position].titulo,
                 style: TextStyle(
                   color: ads.done ? Colors.white : Colors.grey,
                   decoration: ads.done
@@ -63,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       : TextDecoration.lineThrough,
                 ),
               ),
-              subtitle: Text(_lista[position].titulo),
+              subtitle: Text(_lista[position].texto),
               trailing: Switch(
                   value: ads.done,
                   activeColor: const Color.fromARGB(255, 61, 255, 109),

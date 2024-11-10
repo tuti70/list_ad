@@ -3,16 +3,27 @@ import 'package:lista_de_tarrefas/todo.dart';
 //Add fotos, valor, quantidade
 
 class CadastroScreen extends StatefulWidget {
-  const CadastroScreen({super.key});
+  final Ads? ads;
+  const CadastroScreen({super.key, this.ads});
 
   @override
   State<CadastroScreen> createState() => _CadastroScreen();
 }
 
 class _CadastroScreen extends State<CadastroScreen> {
-  final TextEditingController _textController = TextEditingController();
   final TextEditingController _tituloController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  @override
+  void initState() {
+    super.initState();
+    if (widget.ads != null) {
+      setState(() {
+        _tituloController.text = widget.ads!.titulo;
+        _textController.text = widget.ads!.texto;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

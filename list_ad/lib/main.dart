@@ -15,7 +15,9 @@ void main() {
       initialRoute: "/",
       routes: {
         "/": (context) => const HomeScreen(),
-        "/cadastro": (context) => const CadastroScreen(),
+        "/cadastro": (context) => const CadastroScreen(
+              ads: null,
+            ),
       },
     ),
   );
