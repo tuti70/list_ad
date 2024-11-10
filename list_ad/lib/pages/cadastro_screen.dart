@@ -14,6 +14,8 @@ class _CadastroScreen extends State<CadastroScreen> {
   final TextEditingController _tituloController = TextEditingController();
   final TextEditingController _textController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  Ads? ads;
+
   @override
   void initState() {
     super.initState();
@@ -21,6 +23,7 @@ class _CadastroScreen extends State<CadastroScreen> {
       setState(() {
         _tituloController.text = widget.ads!.titulo;
         _textController.text = widget.ads!.texto;
+        ads = widget.ads;
       });
     }
   }
@@ -89,8 +92,8 @@ class _CadastroScreen extends State<CadastroScreen> {
                             Navigator.pop(context, newTask);
                           }
                         },
-                        child: const Text(
-                          "Cadastrar",
+                        child: Text(
+                          ads != null ? "Editar" : "Cadastrar",
                           style: TextStyle(
                             color: Colors.white,
                           ),
