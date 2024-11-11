@@ -41,14 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             ListTile(
-                                leading: const Icon(Icons.delete),
-                                title: const Text("Apagar"),
-                                onTap: () {
-                                  setState(() {
-                                    _lista.removeAt(position);
-                                  });
-                                }),
-                            ListTile(
                               leading: const Icon(Icons.edit),
                               title: const Text("Editar"),
                               onTap: () async {
@@ -64,6 +56,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                 });
                               },
                             ),
+                            ListTile(
+                                leading: const Icon(Icons.delete),
+                                title: const Text("Apagar"),
+                                onTap: () {
+                                  Navigator.pop(context);
+                                  setState(() {
+                                    _lista.removeAt(position);
+                                  });
+                                }),
                           ],
                         ),
                       );
