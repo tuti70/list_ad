@@ -48,7 +48,7 @@ class _CadastroScreen extends State<CadastroScreen> {
               child: Card(
                 color: const Color.fromARGB(255, 73, 73, 73),
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(10, 5, 10, 20),
+                  padding: const EdgeInsets.fromLTRB(10, 5, 10, 20),
                   child: TextFormField(
                     controller: _tituloController,
                     style: const TextStyle(fontSize: 18),
@@ -71,7 +71,7 @@ class _CadastroScreen extends State<CadastroScreen> {
               child: Card(
                 color: const Color.fromARGB(255, 73, 73, 73),
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(10, 5, 10, 20),
+                  padding: const EdgeInsets.fromLTRB(10, 5, 10, 20),
                   child: TextFormField(
                     controller: _textController,
                     style: const TextStyle(fontSize: 18),
@@ -90,7 +90,7 @@ class _CadastroScreen extends State<CadastroScreen> {
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 10),
+              padding: const EdgeInsets.symmetric(vertical: 10),
               child: Row(
                 children: [
                   Expanded(
